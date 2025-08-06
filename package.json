@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "start": "node src/server.ts",
-    "build": "rm -rf dist && tsc && cp package*.json dist/ && cd dist && npm install --omit=dev && chmod +x cli.js",
+    "build": "tsc",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,10 +26,13 @@
   "license": "MIT",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.0.0",
-    "@modelcontextprotocol/sdk": "^1.7.0",
+    "@aws-sdk/s3-request-presigner": "^3.859.0",
+    "@modelcontextprotocol/sdk": "^1.17.1",
     "adm-zip": "^0.5.16",
     "commander": "^11.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "express": "^5.1.0",
     "mime-types": "^3.0.1",
     "pdfreader": "^3.0.7",
     "xml2js": "^0.6.2",
@@ -43,6 +46,8 @@
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.7",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
     "@types/mime-types": "^3.0.1",
     "@types/node": "^20.0.0",
     "@types/xml2js": "^0.4.14",
